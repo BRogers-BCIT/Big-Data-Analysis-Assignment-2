@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- This form references the productionPost route. -->
+<form action="{% url 'productionPost' %}" method="post">
+{% csrf_token %}
+</form>
+<!-- End of form. -->
+
+<!-- This error will notify the user if there are issues with the POST request -->
+{% if errorMessage %}
+<p><strong>{{errorMessage}}</strong></p>
+{% endif %}
+
+{% endblock content %}
+
+</body>
+</html>
